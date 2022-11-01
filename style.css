@@ -1,0 +1,57 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #303030;
+}
+.preloader {
+  display: flex;
+}
+.preloader-box {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 -7.5px;
+}
+
+.preloader-box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(18deg * var(--i)));
+}
+.preloader-box span::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: calc(50% - 7.5px);
+  width: 15px;
+  height: 15px;
+  background-color: #54ebfe;
+  box-shadow: 0 0 10px #54ebfe, 0 0 20px #54ebfe, 0 0 40px #54ebfe,
+    0 0 60px #54ebfe, 0 0 80px #54ebfe, 0 0 100px #54ebfe;
+  border-radius: 100%;
+  transform: scale(0.1);
+  animation: rotate 4s linear infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+@keyframes rotate {
+  0% {
+    transform: scale(1);
+  }
+  50%,
+  100% {
+    transform: scale(0.1);
+  }
+}
+.preloader-box:nth-child(2){
+    transform: rotate(-180deg);
+}
+.preloader-box:nth-child(2) span::before{
+    animation-delay: calc(-0.1s * var(--i));
+}
